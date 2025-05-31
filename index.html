@@ -41,61 +41,61 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="container mx-auto px-4 py-8">
-        
+        <!-- Header -->
         <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg p-6 mb-8 text-center">
             <h1 class="text-4xl font-bold mb-2">Relatório de Performance</h1>
             <p class="text-xl opacity-90">Análise detalhada do desempenho de vendas</p>
             <div class="mt-4 flex justify-center">
                 <div class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold inline-flex items-center">
                     <i class="fas fa-calendar-alt mr-2"></i>
-                    Data: 01/05/2025 à 03/05/2025
+                    Data: 01/05/2025 à 30/05/2025
                 </div>
             </div>
         </header>
 
-        
+        <!-- Salesperson Focus -->
         <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8 transition-all duration-300 card-hover">
             <div class="md:flex">
                 <div class="md:w-1/4 bg-gradient-to-b from-blue-500 to-blue-600 p-6 flex flex-col items-center justify-center">
                     <div class="w-24 h-24 rounded-full overflow-hidden shadow-lg mb-4 floating border-4 border-white">
                         <img src="https://i.ibb.co/kgdKPYDM/dayane-foto.png" alt="Foto de Dayane" class="w-full h-full object-cover" />
                     </div>
-                    <h2 class="text-2xl font-bold text-white text-center">DAYANE</h2>
+                    <h2 class="text-2xl font-bold text-white text-center">DAYANE<!-- Aqui seria o ID vamos dizer pelo nome, que vai procurar os dados na planilha, nome vai estar assim "DAYANE" (coluna A da linha 10 para baixo na aba 'Filtro Data') --></h2>
                     <p class="text-blue-100 mt-1">Vendedor (a)</p>
                 </div>
                 <div class="md:w-3/4 p-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        
+                        <!-- Box Sales -->
                         <div class="bg-red-50 p-4 rounded-lg border border-red-100">
                             <h3 class="text-sm font-semibold text-red-800 mb-1 text-center">Faturamento Personalizados</h3>
-                            <p class="text-2xl font-bold text-red-600 text-center">R$ 51.804,20</p>
+                            <p class="text-2xl font-bold text-red-600 text-center">R$ 96.177,75<!-- TOTAL VENDAS PELA BOX (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna B ) --></p>
                             <div class="mt-2 flex justify-center">
-                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">38.03% de  R$ 136.206,54 </span>
+                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">42.09% de <!--Pega o TOTAL GERAL VENDAS BOX e divide pelo TOTAL VENDAS PELA BOX achas o valor --> R$ 228.520,56 <!-- TOTAL GERAL VENDAS BOX (Encontra a linha onde está TOTAL GERAL Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna B ) --></span>
                             </div>
                         </div>
-                        
+                        <!-- Net Sales -->
                         <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
                             <h3 class="text-sm font-semibold text-purple-800 mb-1 text-center">Faturamento Genéricos</h3>
-                            <p class="text-2xl font-bold text-purple-600 text-center">R$ 27.811,06</p>
+                            <p class="text-2xl font-bold text-purple-600 text-center">R$ 37.601,92<!-- TOTAL VENDAS PELA NET (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna C ) --></p>
                             <div class="mt-2 flex items-center justify-center">
-                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">12.35% de  R$ 225.256,59 </span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">12.62% <!--Pega o TOTAL GERAL VENDAS NET e divide pelo TOTAL VENDAS PELA NET achas o valor -->de  R$ 297.888,83 <!-- TOTAL GERAL VENDAS NET (Encontra a linha onde está TOTAL GERAL Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna C ) --></span>
                             </div>
                         </div>
-                        
+                        <!-- Pedidos Sales -->
                         <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
                             <h3 class="text-sm font-semibold text-yellow-800 mb-1 text-center">Faturamento Indústria</h3>
-                            <p class="text-2xl font-bold text-yellow-600 text-center">R$ 0,00</p>
+                            <p class="text-2xl font-bold text-yellow-600 text-center">R$ 0,00<!-- TOTAL VENDAS PELA IND (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna D ) --></p>
                             <div class="mt-2 flex justify-center">
-                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">0% de  R$ 0,00</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">0%<!--Pega o TOTAL GERAL VENDAS IND e divide pelo TOTAL VENDAS PELA IND achas o valor --> de  R$ 0,00<!-- TOTAL GERAL VENDAS IND (Encontra a linha onde está TOTAL GERAL Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna D ) --></span>
                             </div>
                         </div>                        
-                        
+                        <!-- Total Sales -->
                     <div class="col-span-full flex justify-center">
                         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 w-full md:w-1/2">
                             <h3 class="text-sm font-semibold text-blue-800 mb-1 text-center">Total Geral</h3>
-                            <p class="text-3xl font-bold text-blue-600 text-center">R$ 29.615,26</p>
+                            <p class="text-3xl font-bold text-blue-600 text-center">R$ 133.779,67<!-- TOTAL VENDAS PELA BOX NET E IND (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna E ) --></p>
                             <div class="mt-2 flex justify-center">
-                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">9.51% de  R$ 311.463,13 </span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">25.41%<!--Pega o TOTAL GERAL VENDAS BOX NET E IND e divide pelo TOTAL VENDAS PELA BOX NET E IND achas o valor --> de  R$ 526.409,39 <!-- TOTAL GERAL VENDAS BOX NET E IND (Encontra a linha onde está TOTAL GERAL Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna E ) --></span>
                             </div>
                         </div>
                     </div>
@@ -103,155 +103,157 @@
             </div>
         </div>
 
-        
+        <!-- Performance Analysis -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            
+            <!-- Left Column -->
             <div class="space-y-6">
-                
+                <!-- Goal Status -->
                 <div class="bg-white rounded-xl shadow-md p-6 transition-all duration-300 card-hover">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-bullseye mr-2 text-red-500"></i> Status da Meta
                     </h3>
                     <div class="flex items-center justify-between mb-2">
                         <span class="font-medium">Progresso:</span>
-                        <span class="font-bold">15%</span>
+                        <span class="font-bold">167%<!-- TOTAL PORCENTAGEM META (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna I ) --></span>
                     </div>
                     <div class="progress-bar mb-4">
-                        <div class="progress-fill bg-gradient-to-r from-green-400 to-teal-500" style="width: 15%;"></div> 
+                        <div class="progress-fill bg-gradient-to-r from-green-400 to-teal-500" style="width: 167%;"></div> <!-- TOTAL PORCENTAGEM META (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna I ) -->
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold flex items-center">
-                                <i class="fas fas fa-times-circle mr-1 mr-1"></i> Não Bateu META!
+                                <i class="fas fas fa-check-circle mr-1 mr-1"></i> Bateu META!
                             </span>
                         </div>
-                        <span class="text-sm text-gray-600">Para Completar a Meta Falta: 85%</span>
+                        <span class="text-sm text-gray-600">Passou 67% da Meta!<!-- DIFERENÇA META (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' Calcula a diferença de 100% exemplo 236% pasou 136% ) --></span>
                     </div>
                     <div class="mt-4 bg-green-50 border-l-4 border-green-400 p-3 rounded-r">
                         <p class="text-sm text-green-800">
-                            <i class="fas fa-exclamation-circle mr-1"></i><b>Ação e Determinação! 💪</b> Vamos acelerar, DAYANE! O mês está só começando, então é hora de focar na meta. Organize sua estratégia, acione os clientes potenciais e faça cada venda contar. Com determinação e esforço, vamos construir um mês de sucesso juntos. Rumo à vitória! 🚀 #SollerEmbalagens #VendasComForça
+                            <i class="fas fa-exclamation-circle mr-1"></i><b>Pressão máxima na galera da Indústria!</b>  
+Bora faturar tudo o que puder antes do mês acabar! Conversa com a expedição e faturamento pra priorizar seus pedidos. Faz uma lista de tudo que você vendeu no mês e que ainda tá pendente — não deixa nada passar! Esse é o sprint final — fecha com chave de ouro! 🏁<!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Market Share -->
                 <div class="bg-white rounded-xl shadow-md p-6 transition-all duration-300 card-hover">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-chart-pie mr-2 text-blue-500"></i> Participação entre os Vendedores
                     </h3>
                     <div class="mb-4">
-                        <p class="text-gray-700 mb-2">Você representa <span class="font-bold text-blue-600">43.12% </span> das vendas da equipe.</p>
+                        <p class="text-gray-700 mb-2">De um total de <span class="font-bold text-blue-600">R$ 292.359,78</span> em vendas da equipe interna, <span class="font-bold text-blue-600">45.76%</span> foram feitas por você!</p> <!-- TOTAL PORCENTAGEM VENDEDORES INTERNOS (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna G ) -->
                         <div class="bg-gray-200 h-4 rounded-full">
-                            <div class="bg-blue-500 h-4 rounded-full" style="width: 43.12%"></div> 
+                            <div class="bg-blue-500 h-4 rounded-full" style="width: 45.76%"></div> <!-- TOTAL PORCENTAGEM VENDEDORES (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna I ) -->
                         </div>
                     </div>
                     <div class="bg-blue-50 p-3 rounded-lg">
                         <p class="text-sm text-blue-800">
-                            <i class="fas fa-lightbulb mr-1"></i> <strong>Continue assim!</strong> Continue assim! 
+                            <i class="fas fa-lightbulb mr-1"></i> <b>Meta batida, sucesso garantido</b>  
+Com um faturamento de R$ 133.779,67, você superou em 167% a meta de R$ 80.000,00. Sua participação de 45.76% nas vendas internas mostra sua força na equipe. Estamos no Mês Finalizando, com apenas 1 dia restante. Agora, é hora de conferir seus ganhos na aba <b>💵 Detalhamento de Ganhos</b>. Arrasou! <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
                         </p>
                     </div>
                 </div>
-                
+                <!-- Market Share -->
                 <div class="bg-white rounded-xl shadow-md p-6 transition-all duration-300 card-hover">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-box-open mr-2 text-red-500"></i> Meta de Vendas do Mês
                     </h3>
                     <div class="mb-4">
-                        <p class="text-gray-700 mb-2">Meta em andamento: <span class="font-bold text-red-600">R$ 63.227,35</span> vendidos <b>(52.69%).</b> Falta <span class="font-bold text-red-600">R$ 56.772,65</span> para bater a meta! 🚀</p>
+                        <p class="text-gray-700 mb-2">Meta em andamento: <span class="font-bold text-red-600">R$ 78.860,83</span> vendidos <b>(65.72%).</b> Falta <span class="font-bold text-red-600">R$ 41.139,17</span> para bater a meta! 🚀</p>
                         <div class="bg-gray-200 h-4 rounded-full">
-                            <div class="bg-red-500 h-4 rounded-full" style="width: 52.69%; max-width: 100%;"></div> 
+                            <div class="bg-red-500 h-4 rounded-full" style="width: 65.72%; max-width: 100%;"></div> <!-- TOTAL VENDAS NO MÊS DIFERENÇA (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna O porém analisa na aba "Parâmetros" procura na coluna A por DAYANE e ver na coluna D vai saber esse axemplo está 147% ou seja 47% acima de 100, poderia ser abaixo exemplo só 47% faltaria 53 para 100 resultado preenche na "width: 147%" exemplo" ) -->
                         </div>
                     </div>
                     <div class="bg-red-50 p-3 rounded-lg">
                         <p class="text-sm text-red-800">
-                            <i class="fas fa-lightbulb mr-1"></i> <strong>Ótima performance!</strong> Ótima performance! 
+                            <i class="fas fa-lightbulb mr-1"></i> <strong>Acelera!</strong> Acelera! <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
                         </p>
                     </div>
                 </div>
             </div>
 
-            
+            <!-- Right Column -->
             <div class="space-y-6">
-                
+                <!-- Earnings Breakdown -->
                 <div class="bg-white rounded-xl shadow-md p-6 transition-all duration-300 card-hover">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-money-bill-wave mr-2 text-green-500"></i> Detalhamento de Ganhos
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600"><span class="text-gray-300"><s><b>⭐ Best Seller</b> levou para casa:</s></span></span>
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 250,00</s></span></span>
+                            <span class="text-gray-600"><b>Best Seller</b> ⭐ levou para casa:</span><!-- BEST SELLER (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e analisa a informação da coluna H se lá estiver exatamante assim: "✅ Bateu ⭐⭐" caso tenha qualquer outra coisa o HTML essa muda para: <span class="text-gray-300"><s><b>Best Seller ⭐</b> levou para casa:</s></span> ) -->
+                            <span class="font-bold">R$ 250,00</span><!-- BEST SELLER VALOR (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e tras a informação da CELULA G9. Para acontecer isso dentro de 'Filtro Data' na linha encontrada com DAYANE, na coluna H tem que estar "✅ Bateu ⭐⭐" se não tiver o html teria que ficar assim: <span class="font-bold text-gray-300"><s>R$ 250,00</s></span> ) -->
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600"><span class="text-gray-300"><s>Bateu <b>R$ 80 K</b> de faturamento:</s></span></span> 
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 250,00</s></span></span> 
+                            <span class="text-gray-600">Bateu <b>R$ 80 K</b> de faturamento:</span> <!-- META INDIVIDUAL (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e tras a informação da coluna C, lá vai estar assim: (exemplo 80000) então retorna 80 K. O HTML precisa ser substituido, quando procurar na aba 'Filtro Data' onde DAYANE esté escrito na coluna A e analisa a coluna E caso o valor dessa estiver menor que o valor na Aba 'Parâmetro' da coluna C seria esse HTML: <span class="text-gray-300"><s>Bateu <b>R$ "COLUNA C (valor dinamico)" K</b> de faturamento:</s></span>  ) -->
+                            <span class="font-bold">R$ 250,00</span> <!-- META INDIVIDUAL VALOR (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e tras a informação da coluna B. O HTML precisa ser substituido, quando procurar na aba 'Filtro Data' onde DAYANE esté escrito na coluna A e analisa a coluna E caso o valor dessa estiver menor que o valor na Aba 'Parâmetro' da coluna C seria esse HTML: <span class="font-bold text-gray-300"><s>R$ "COLUNA B (valor dinamico)"</s></span>  ) -->
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600"><span class="text-gray-300"><s>Bateu <b>R$ 120 K</b> de venda:</s></span></span> 
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 250,00</s></span></span> 
+                            <span class="text-gray-600"><span class="text-gray-300"><s>Bateu <b>R$ 120 K</b> de venda:</s></span></span> <!-- META VENDA (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e tras a informação da coluna D, lá vai estar assim: (exemplo 120000) então retorna 120 K. O HTML precisa ser substituido, quando procurar na aba 'Filtro Data' onde DAYANE esté escrito na coluna A e analisa a coluna O caso o valor dessa estiver menor que o valor na Aba 'Parâmetro' da coluna D seria esse HTML: <span class="font-bold text-gray-300"><s>R$ "COLUNA D (valor dinamico)"</s></span>  ) -->
+                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 250,00</s></span></span> <!-- META VENDA VALOR (Esse valor vem da celula G8 da aba 'Parêmtros' só que para ele vir, é a mesma logica acima que analisa a coluna O, Caso não bater o HMTL seria: <span class="font-bold text-gray-300"><s>R$ 250,00</s></span>)-->
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600">Meta 1️⃣ Concluída... 112.96%</span> 
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 0,00</s></span></span> 
+                            <span class="text-gray-600">Meta 1️⃣ - <b>45.76%</b> de <b>R$ 1 K</b> é seu:</span> <!-- META 1 (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna G que no caso iria no lugar do exemplo: "40.91%", já a parte onde está "1000,00" vai na aba 'Parâmetros' e pega a informação da celula H5, para funcionar isso dentro da coluna H não pode estar escrito qualquer coisa menos "❌ Não Bateu" se tiver escrito isso, dai muda o HTML para isso: <span class="text-gray-300"><s>Meta (1) - <b>"Dados dinamicos"</b> de R$ "dados dinamicos" é seu:</s></span> )-->
+                            <span class="font-bold">R$ 457,60</span> <!-- META 1 VALOR (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna K, porém se dentro da coluna K estiver escrito: "❌ Não Bateu" tras o valor 0, ficando o HTML assim: <span class="font-bold text-gray-300"><s>R$ 0,00</s></span>)-->
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600"><span class="text-gray-300"><s>Meta 2️⃣ Concluída... 0%</s></span></span> 
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 0,00</s></span></span> 
+                            <span class="text-gray-600">Meta 2️⃣ - <b>45.76%</b> de <b>R$ 1.25 K</b> é seu:</span> <!-- META 2 (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna G que no caso iria no lugar do exemplo: "40.91%", já a parte onde está "1250,00" vai na aba 'Parâmetros' e pega a informação da celula H6, para funcionar isso dentro da coluna H não pode estar escrito qualquer coisa menos "❌ Não Bateu" se tiver escrito isso, dai muda o HTML para isso: <span class="text-gray-300"><s>Meta (1) - <b>"Dados dinamicos"</b> de R$ "dados dinamicos" é seu:</s></span> )-->
+                            <span class="font-bold">R$ 572,00</span> <!-- META 2 VALOR (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna L, porém se dentro da coluna L estiver escrito: "❌ Não Bateu" tras o valor 0, ficando o HTML assim: <span class="font-bold text-gray-300"><s>R$ 0,00</s></span>)-->
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600"><span class="text-gray-300"><s>Meta 3️⃣ Concluída... 0%</s></span></span> 
-                            <span class="font-bold"><span class="font-bold text-gray-300"><s>R$ 0,00</s></span></span> 
+                            <span class="text-gray-600">Meta 3️⃣ - <b>1.50%</b> de <b>R$ 2.932,94</b> é seu:</span> <!-- META 3 (Encontra a linha onde está DAYANE Coluna A na aba 'Parâmetros' e tras a informação da CELULA G7, no caso aonde está exemplo: "1.5%" para preencher o exemplo: "74.643,20" tem que ser feito uma conta assim: Analisa a Celula C6 da aba 'Filtro Data' e depois analisa na aba 'Parâmetros' a celula G4 exemplo: C6 está "702457,1" na G4 está "520000" = 182.457,10 analisa na coluna G na linha onde a coluna A foi encontrado o vendedor exemplo: "DAYANE" está 40,91% então tira esse valor ficando 74.643,20, caso não superou o valor que está na celula G4 de 'Parâmetros' O HTML precisa ser substituido, <span class="text-gray-300"><s>Meta (3) - <b>0.00%</b> - de R$ 0,00 é seu:</s></span>  ) -->
+                            <span class="font-bold">R$ 43,99</span> <!-- META 3 VENDA (Aqui será feito uma conta, ou seja fizemos a conta acima na explicação e achas o valor de "74.643,20" DAYANE ganha 1.5% desse valor ficando exemplo: 1.119,65 )-->
                         </div>
                         <div class="border-t border-gray-200 pt-2 mt-2">
                             <div class="flex justify-between items-center">
                                 <span class="text-gray-800 font-semibold">Total Bruto:</span>
-                                <span class="font-bold text-green-600">R$ 0,00</span> 
+                                <span class="font-bold text-green-600">R$ 1.573,59</span> <!-- TOTAL GANHOS (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna Q)-->
                             </div>
                         </div>
                     </div>
                     <div class="mt-4 bg-green-50 p-3 rounded-lg">
                         <p class="text-sm text-green-800">
-                            <i class="fas fa-coins mr-1"></i> <strong>Parabéns pelos ganhos!</strong> Parabéns pelos ganhos! 
+                            <i class="fas fa-coins mr-1"></i> <strong>Mandou bem!</strong> Mandou bem! <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Potential Analysis -->
                 <div class="bg-white rounded-xl shadow-md p-6 transition-all duration-300 card-hover">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-chart-line mr-2 text-purple-500"></i> Análise de Potencial
                     </h3>
                     <div class="mb-3">
-                        <p class="text-gray-700 mb-1">Vendas (Produtos Personalizados) - <b>R$ 51.804,20</b></p> 
+                        <p class="text-gray-700 mb-1">Vendas (Produtos Personalizados) - <b>R$ 96.177,75</b></p> <!-- TOTAL PERSONALIZADOS (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna B)-->
                         <div class="bg-gray-200 h-3 rounded-full">
-                            <div class="bg-red-400 h-3 rounded-full" style="width: 55.77%"></div> 
+                            <div class="bg-red-400 h-3 rounded-full" style="width: 55.73%"></div> <!-- TOTAL PERSONALIZADOS PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna B e divide pela coluna E e multiplica por 100 para achar a porcentagem)-->
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Você fez <b>55.77% </b> das vendas internas de personalizados!</p>
+                        <p class="text-xs text-gray-500 mt-1">Você fez <b>55.73% <!-- TOTAL PERSONALIZADOS PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna B e divide pela coluna E e multiplica por 100 para achar a porcentagem)--></b> das vendas internas de personalizados!</p>
                     </div>
                     <div class="mb-3">
-                        <p class="text-gray-700 mb-1">Vendas (Produtos Genéricos) - <b>R$ 27.811,06</b></p> 
+                        <p class="text-gray-700 mb-1">Vendas (Produtos Genéricos) - <b>R$ 37.601,92</b></p> <!-- TOTAL GENERICOS (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna c)-->
                         <div class="bg-gray-200 h-3 rounded-full">
-                            <div class="bg-purple-400 h-3 rounded-full" style="width: 30.31%"></div> 
+                            <div class="bg-purple-400 h-3 rounded-full" style="width: 31.39%"></div> <!-- TOTAL GENERICOS PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna C e divide pela coluna E e multiplica por 100 para achar a porcentagem)-->
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Você fez <b>30.31% </b> das vendas internas de genéricos!</p>
+                        <p class="text-xs text-gray-500 mt-1">Você fez <b>31.39% <!-- TOTAL GENERICOS PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna C e divide pela coluna E e multiplica por 100 para achar a porcentagem)--></b> das vendas internas de genéricos!</p>
                     </div>
                     <div class="mb-3">
-                        <p class="text-gray-700 mb-1">Vendas (Produtos Indústria) - <b>R$ 0,00</b></p> 
+                        <p class="text-gray-700 mb-1">Vendas (Produtos Indústria) - <b>R$ 0,00</b></p> <!-- TOTAL INDUSTRIA (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna D)-->
                         <div class="bg-gray-200 h-3 rounded-full">
-                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 0%"></div> 
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 0%"></div> <!-- TOTAL INDUSTRIA PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna D e divide pela coluna E e multiplica por 100 para achar a porcentagem)-->
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Você fez <b>0% </b> das vendas internas para a indústria!</p>
+                        <p class="text-xs text-gray-500 mt-1">Você fez <b>0% <!-- TOTAL INDUSTRIA PORCENTAGEM (Encontra a linha onde está DAYANE Coluna A na linha 10 para baixo na aba 'Filtro Data' e tras a informação da coluna D e divide pela coluna E e multiplica por 100 para achar a porcentagem)--></b> das vendas internas para a indústria!</p>
                     </div>
                     <div class="bg-purple-50 p-3 rounded-lg">
                         <p class="text-sm text-purple-800">
-                            <i class="fas fa-bullseye mr-1"></i> <strong>Potencial incrível!</strong> Potencial incrível! 
+                            <i class="fas fa-bullseye mr-1"></i> <strong>Grande potencial!</strong> Grande potencial! <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        
+        <!-- Recommendations -->
         <div class="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl shadow-lg p-6 text-white mb-8">
             <h3 class="text-xl font-bold mb-4 flex items-center">
                 <i class="fas fa-magic mr-2"></i> Recomendações e dicas para melhorar sua Performance! 
@@ -264,7 +266,7 @@
                         </div>
                         <h4 class="font-semibold">Produtos Personalizados</h4>
                     </div>
-                    <p class="text-sm opacity-90">Explore novos nichos. </p>
+                    <p class="text-sm opacity-90">Explore novos nichos. <!-- Essa informação será alimentada por IA "Depois discutimos" ) --></p>
                 </div>
                 <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
                     <div class="flex items-center mb-2">
@@ -273,7 +275,7 @@
                         </div>
                         <h4 class="font-semibold">Produtos Genéricos</h4>
                     </div>
-                    <p class="text-sm opacity-90">Aposte em campanhas sazonais. </p>
+                    <p class="text-sm opacity-90">Ofereça combos. <!-- Essa informação será alimentada por IA "Depois discutimos" ) --></p>
                 </div>
                 <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
                     <div class="flex items-center mb-2">
@@ -282,24 +284,24 @@
                         </div>
                         <h4 class="font-semibold">Meta Final</h4>
                     </div>
-                    <p class="text-sm opacity-90">Mantenha o foco! </p>
+                    <p class="text-sm opacity-90">Continue com foco! <!-- Essa informação será alimentada por IA "Depois discutimos" ) --></p>
                 </div>
             </div>
         </div>
 
-        
+        <!-- Final Message -->
         <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-6 transition-all duration-300 card-hover pulse-animation">
-            <div class="text-5xl mb-4 text-red-400">
-                <i class="fas fa-thumbs-down"></i>
+            <div class="text-5xl mb-4 text-yellow-400">
+                <i class="fas fa-trophy"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">DAYANE, Você não bateu a Meta! 😥</h3> 
-            <p class="text-gray-600 mb-4">Você é destaque!</p> 
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">DAYANE, Você ganhou o Best Seller ⭐</h3> <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
+            <p class="text-gray-600 mb-4">Você é destaque!</p> <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
             <div class="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold">
-                <i class="fas fa-rocket mr-2"></i> Rumo à próxima meta! 🚀 
+                <i class="fas fa-rocket mr-2"></i> Rumo à próxima meta! 🚀 <!-- Essa informação será alimentada por IA "Depois discutimos" ) -->
             </div>
         </div>
 
-        
+        <!-- Footer -->
         <footer class="mt-8 text-center text-gray-500 text-sm">
             <p>Relatório gerado automaticamente <b>Soller IA 🤖</b></p>
             <p class="mt-1">© 2025 Equipe de Vendas - Todos os direitos reservados</p>
@@ -307,12 +309,12 @@
     </div>
 
     <script>
-        
+        // Set current date
         const now = new Date();
         const options = { day: '2-digit', month: 'long', year: 'numeric' };
         document.getElementById('current-date').textContent = now.toLocaleDateString('pt-BR', options);
         
-        
+        // Add animations on scroll
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.card-hover');
             
