@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Trabalhos Atrasados</title>
+    <style type="text/css">
+        /* Base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.4;
+            color: #333333;
+            background-color: #f5f7fa;
+        }
+        
+        /* Email container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 28px 24px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Content */
+        .content {
+            padding: 24px;
+        }
+        
+        /* Alert box */
+        .alert-box {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffedd5 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .alert-box h2 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            color: #92400e;
+            font-weight: 600;
+        }
+        
+        /* Table styles */
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        
+        .order-table th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4b5563;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .order-table td {
+            padding: 12px;
+            font-size: 14px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        
+        .order-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Status badge */
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-canceled {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+        }
+        
+        /* Highlight row */
+        .highlight-row {
+            background-color: #fef2f2;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #f9fafb;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .order-table th, 
+            .order-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⚠️ Aviso de Trabalhos Atrasados</h1>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div style="margin-bottom: 24px; background: white; border-radius: 8px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <div style="margin-bottom: 16px;">
+                    <div style="height: 1px; background: #e5e7eb; margin: 0 0 20px 0;"></div>
+                    <!-- Status da OP em cima -->
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+                        <span style="font-size:22px;color:#6b7280;font-weight:bold;margin-right:8px;">OP</span>
+                        <span id="op-numero" style="background:#dbeafe;color:#1e40af;padding:4px 20px;border-radius:20px;font-size:22px;font-weight:bold;display:inline-block;">000.000</span>
+                    </div>
+                    <!-- OP, Pedido, Cálculo, Status -->
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-size:16px;color:#6b7280;font-weight:bold;margin-right:8px;">Pedido</span>
+                            <span id="pedido-numero" style="background:#d6d6d6;color:#3f3f3f;padding:4px 20px;border-radius:20px;font-size:16px;font-weight:bold;display:inline-block;">0000</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-size:16px;color:#6b7280;font-weight:bold;margin-right:8px;">Cálculo</span>
+                            <span id="calculo-numero" style="background:#d6d6d6;color:#3f3f3f;padding:4px 20px;border-radius:20px;font-size:16px;font-weight:bold;display:inline-block;">000.000</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-size:10px;color:#6b7280;font-weight:bold;margin-right:8px;">Status da OP</span>
+                            <span id="status-badge" style="background:#fee2e2;color:#b91c1c;padding:4px 16px;border-radius:16px;font-size:14px;font-weight:bold;display:inline-block;">STATUS</span>
+                        </div>
+                    </div>
+                    <div style="height: 1px; background: #e5e7eb; margin: 0 0 20px 0;"></div>
+                </div>
+                
+                <div style="display: flex; margin-bottom: 16px;">
+                    <div style="flex: 1; padding-right: 16px;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Cliente</div>
+                        <div id="cliente-nome" style="font-size: 14px; font-weight: 500;">CLIENTE</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Trabalho</div>
+                        <div id="trabalho-desc" style="font-size: 12px;">TRABALHO</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; background: #f9fafb; border-radius: 6px; padding: 12px;">
+                    <div style="flex: 1; border-right: 1px solid #e5e7eb; padding-right: 12px;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Emissão</div>
+                        <div id="emissao-data" style="font-size: 14px; font-weight: 500;">00.00.0000 00:00</div>
+                        <div id="emissor-nome" style="font-size: 11px; color: #a7a7a7; margin-top: 4px;">Emissor: EMISSOR</div>
+                        <div id="vendedor-nome" style="font-size: 11px; color: #a7a7a7; margin-top: 4px;">Vendedor: VENDEDOR</div>
+                    </div>
+                    <div style="flex: 1; padding-left: 12px;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Entrega</div>
+                        <div id="entrega-data" style="font-size: 22px; font-weight: 500; color: #ff0000;">00.00.0000 00:00</div>
+                        <div id="atraso-texto" style="font-size: 15px; color: #ff0000; text-align: left; margin-top: 2px;">Atraso</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size: 13px; color: #515151; margin-bottom: 10px; text-align: center;">Planejamento de Faturamento</div>
+            <div id="planejamento-faturamento" style="background: #f9fafb; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    <div style="display: flex; gap: 4px; flex: 1 1 0;">
+                        <div style="min-width: 80px;">
+                            <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Quant. OP</div>
+                            <div id="quantidade" style="font-size: 14px;">0,000</div>
+                        </div>
+                        <div style="min-width: 100px;">
+                            <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Preço Unit. OP</div>
+                            <div id="preco-unitario" style="font-size: 14px;">R$ 0,00</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 120px;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">R$ Total OP</div>
+                        <div id="preco-final" style="font-size: 14px;">R$ 0,00</div>
+                    </div>
+                    <div style="flex: 1; min-width: 120px;">
+                        <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Pagamento OP</div>
+                        <div id="pagamento" style="font-size: 11px;">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container para as notas fiscais -->
+            <div id="notas-fiscais-container"></div>
+
+            <div class="alert-box">
+                <h2>Atenção!</h2>
+                <p>Os seguintes trabalhos estão com o prazo de entrega vencido ou próximo do vencimento. Por favor, tome as providências necessárias.</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Sistema de Gestão de Ordens de Produção</p>
+            <p>Este e-mail foi gerado automaticamente, por favor não responda.</p>
+        </div>
+    </div>
+
+    <script>
+      // Simulação dos dados vindos de uma API
+      const dadosAPI = {
+        op: "119.071",
+        status: "CANCELADA",
+        statusColor: "#fee2e2",
+        statusTextColor: "#b91c1c",
+        pedido: "3957",
+        calculo: "123.456",
+        cliente: "ORTOIMAGEM",
+        trabalho: "CART.0990 - COLAGENO VERISOL - 1123 MP VITAMINA DO JOSUE - 3812 ULTRA GERIN CAB.PELE E UNHA - 3815 MP CABELO PELE E UNHA",
+        emissor: "Wilmar I.S",
+        vendedor: "SOLLER NET - SAIMON",
+        quantidade: "1.000",
+        precoFinal: "R$ 4.000,00",
+        emissao: "02.06.2025 13:28",
+        entrega: "01.07.2025 18:00",
+        pagamento: "30/60/90 DD - BOLETO",
+        precoUnitario: "R$ 4,00",
+        notasFiscais: [
+          {
+            dataFaturamento: "02/07/2025 15:45",
+            numeroNF: "12345",
+            statusNF: "Faturado",
+            quantidadeNF: "900",
+            precoUnitNF: "R$ 4,00",
+            totalFinalNF: "R$ 3.600,00",
+            pagamentoNF: "30/60 DD - BOLETO"
+          }
+        ]
+      };
+
+      // Função para calcular diferença de dias
+      function calcularDiferencaDias(dataEntregaStr) {
+        // dataEntregaStr no formato "DD.MM.AAAA HH:mm"
+        const [data, hora] = dataEntregaStr.split(' ');
+        const [dia, mes, ano] = data.split('.');
+        const [h, m] = hora.split(':');
+        const dataEntrega = new Date(ano, mes - 1, dia, h, m);
+
+        // Data de hoje (sem hora)
+        const hoje = new Date();
+        hoje.setHours(0,0,0,0);
+
+        // Data de entrega (sem hora)
+        const entregaSemHora = new Date(dataEntrega);
+        entregaSemHora.setHours(0,0,0,0);
+
+        // Diferença em milissegundos
+        const diffMs = entregaSemHora - hoje;
+        // Diferença em dias (arredondado)
+        const diffDias = Math.round(diffMs / (1000 * 60 * 60 * 24));
+        return diffDias;
+      }
+
+      // Função para extrair e capitalizar o nome do vendedor
+      function extrairNomeVendedor(vendedor) {
+        if (!vendedor || vendedor.trim() === "") {
+          return "Sem Vendedor";
+        }
+        if (vendedor.startsWith("SOLLER NET - ")) {
+          let nome = vendedor.split(" - ")[1].trim();
+          return nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+        }
+        // Capitaliza só a primeira letra do nome, se não for SOLLER NET -
+        return vendedor.charAt(0).toUpperCase() + vendedor.slice(1);
+      }
+
+      // Preenchendo os campos dinamicamente
+      document.getElementById("op-numero").textContent = dadosAPI.op;
+      document.getElementById("status-badge").textContent = dadosAPI.status;
+      document.getElementById("status-badge").style.background = dadosAPI.statusColor;
+      document.getElementById("status-badge").style.color = dadosAPI.statusTextColor;
+      document.getElementById("pedido-numero").textContent = dadosAPI.pedido;
+      document.getElementById("calculo-numero").textContent = dadosAPI.calculo;
+      document.getElementById("cliente-nome").textContent = dadosAPI.cliente;
+      document.getElementById("trabalho-desc").textContent = dadosAPI.trabalho;
+      document.getElementById("emissor-nome").textContent = "Emissor: " + dadosAPI.emissor;
+      document.getElementById("vendedor-nome").textContent = "Vendedor: " + extrairNomeVendedor(dadosAPI.vendedor);
+      document.getElementById("quantidade").textContent = dadosAPI.quantidade;
+      document.getElementById("preco-unitario").textContent = dadosAPI.precoUnitario;
+      document.getElementById("preco-final").textContent = dadosAPI.precoFinal;
+      document.getElementById("pagamento").textContent = dadosAPI.pagamento;
+      document.getElementById("emissao-data").textContent = dadosAPI.emissao;
+      document.getElementById("entrega-data").textContent = dadosAPI.entrega;
+
+      // Cálculo do atraso ou dias restantes
+      const diffDias = calcularDiferencaDias(dadosAPI.entrega);
+      let textoAtraso = "";
+      let corAtraso = "#ff0000"; // padrão: vermelho
+      if (diffDias < 0) {
+        textoAtraso = `Atrasado há ${Math.abs(diffDias)} Dia${Math.abs(diffDias) > 1 ? 's' : ''}.`;
+        corAtraso = "#ff0000";
+      } else if (diffDias > 0) {
+        textoAtraso = `Faltam ${diffDias} Dia${diffDias > 1 ? 's' : ''} para Entrega.`;
+        corAtraso = "#2563eb"; // azul
+      } else {
+        textoAtraso = "Entrega é hoje!";
+        corAtraso = "#f59e0b"; // laranja
+      }
+      document.getElementById("atraso-texto").textContent = textoAtraso;
+      document.getElementById("atraso-texto").style.color = corAtraso;
+      document.getElementById("entrega-data").style.color = corAtraso;
+
+      // Função utilitária para parse de número brasileiro
+      function parseNumberBR(str) {
+        return Number(str.replace(/[^0-9,-]+/g, '').replace('.', '').replace(',', '.'));
+      }
+
+      // Renderização dinâmica das notas fiscais
+      const container = document.getElementById("notas-fiscais-container");
+      dadosAPI.notasFiscais.forEach(nf => {
+        const bloco = document.createElement("div");
+        bloco.innerHTML = `
+          <div style="font-size: 13px; color: #515151; margin-bottom: 10px; text-align: center;">
+            ${nf.dataFaturamento} - <b>NF ${nf.numeroNF}</b> - ${nf.statusNF}
+          </div>
+          <div class="nf-quadro" style="background: #f9fafb; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <div style="display: flex; gap: 4px; flex: 1 1 0;">
+                <div style="min-width: 80px;">
+                  <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Quant. NF</div>
+                  <div style="font-size: 14px;">${nf.quantidadeNF}</div>
+                </div>
+                <div style="min-width: 100px;">
+                  <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Preço Unit. NF</div>
+                  <div style="font-size: 14px;">${nf.precoUnitNF}</div>
+                </div>
+              </div>
+              <div style="flex: 1; min-width: 120px;">
+                <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">R$ Total NF</div>
+                <div style="font-size: 14px;">${nf.totalFinalNF}</div>
+              </div>
+              <div style="flex: 1; min-width: 120px;">
+                <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">Pagamento NF</div>
+                <div style="font-size: 11px;">${nf.pagamentoNF}</div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Cálculo da diferença para esta NF
+        let mensagemNF = '';
+        const quantidadeOP = parseNumberBR(dadosAPI.quantidade);
+        const totalOP = parseNumberBR(dadosAPI.precoFinal);
+        const quantidadeNF = parseNumberBR(nf.quantidadeNF);
+        const totalNF = parseNumberBR(nf.totalFinalNF);
+
+        if (quantidadeNF < quantidadeOP) {
+          mensagemNF += `Falta ${quantidadeOP - quantidadeNF} Unidades! `;
+        }
+        if (totalNF < totalOP) {
+          mensagemNF += `Deixando de Faturar R$ ${(totalOP - totalNF).toLocaleString('pt-BR', {minimumFractionDigits: 2})} !!!`;
+        }
+        if (mensagemNF) {
+          const quadroNF = bloco.querySelector('.nf-quadro');
+          const separador = document.createElement('div');
+          separador.style.height = '1px';
+          separador.style.background = '#e5e7eb';
+          separador.style.margin = '16px 0 8px 0';
+
+          const alerta = document.createElement('div');
+          alerta.style.color = '#b91c1c';
+          alerta.style.fontSize = '13px';
+          alerta.style.textAlign = 'center';
+          alerta.textContent = mensagemNF.trim();
+
+          quadroNF.appendChild(separador);
+          quadroNF.appendChild(alerta);
+        }
+
+        container.appendChild(bloco);
+      });
+    </script>
+</body>
+</html>
